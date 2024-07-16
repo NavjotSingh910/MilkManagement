@@ -37,6 +37,9 @@ form {
 
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.19/jspdf.plugin.autotable.min.js"></script>
+
   </head>
   <body>
     <div class="wrapper">
@@ -106,6 +109,7 @@ form {
             </table>
             <div class="pagination" id="paginationControls"></div>
             <div class="total-records" id="totalRecords">Total Records: 0</div>
+            <button id="downloadPdfButton">Download PDF</button>
         </section>
         <section class="sales-chart">
             <h2>Sales Chart</h2>
@@ -115,6 +119,7 @@ form {
             <p>&copy; 2024 Milk Selling Platform</p>
         </footer>
     </div>
+
 
     <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -175,7 +180,12 @@ form {
     // Display pagination controls if needed
     if (data.length > recordsPerPage) {
       displayPaginationControls(data.length);
+    } else {
+      document.getElementById("paginationControls").innerHTML = "";
     }
+
+    // Update total records count
+    document.getElementById("totalRecords").innerText = `Total Records: ${data.length}`;
   }
 
   // Function to display pagination controls
@@ -270,7 +280,7 @@ form {
     const milkType = document.getElementById("milkTypeFilter").value;
     const shift = document.getElementById("shiftFilter").value;
 
-    // Filter sales data based on selected filters
+    // Apply filters
     filteredData = salesData.filter((sale) => {
       const transactionDate = new Date(sale.transactionDate);
       const isStartDateMatch = startDate
@@ -301,8 +311,65 @@ form {
     displaySalesData(filteredData);
     renderSalesChart(filteredData);
   });
+
+  // Function to download PDF
+  document.getElementById("downloadPdfButton").addEventListener("click", () => {
+    if (window.jspdf) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      // Add title
+      doc.setFontSize(18);
+      doc.text("Sales Records", 14, 22);
+
+      // Prepare table headers and data
+      const tableColumn = [
+        "Transaction ID",
+        "Buyer ID",
+        "Buyer Name",
+        "Quantity (liters)",
+        "Payment Method",
+        "Milk Type",
+        "Shift",
+        "Date",
+        "Time",
+      ];
+      const tableRows = [];
+
+      let totalQuantity = 0;
+
+      // Prepare rows for each record
+      filteredData.forEach((sale) => {
+        const saleData = [
+          sale.transactionId,
+          sale.buyerId,
+          sale.buyerName,
+          sale.quantity,
+          sale.paymentMethod,
+          sale.milkType,
+          sale.shift,
+          new Date(sale.transactionDate).toLocaleDateString("en-US"),
+          new Date(sale.transactionDate).toLocaleTimeString("en-US"),
+        ];
+        tableRows.push(saleData);
+        totalQuantity += parseFloat(sale.quantity);
+      });
+
+      // Add table to PDF
+      doc.autoTable(tableColumn, tableRows, { startY: 30 });
+
+      // Add total quantity at the end of the data
+      doc.setFontSize(14);
+      doc.text(`Total Milk Quantity: ${totalQuantity} liters`, 14, doc.autoTable.previous.finalY + 10);
+
+      // Save PDF
+      doc.save("sales_records.pdf");
+    } else {
+      alert("Failed to load jsPDF library.");
+    }
+  });
 });
 
-  </script>
+    </script>
   </body>
 </html>
