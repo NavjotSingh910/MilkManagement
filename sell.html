@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell Milk - Milk Selling Platform</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure footer stays at the bottom */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, nav, section, footer {
+            padding: 1rem;
+        }
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            padding: 1rem;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        section {
+            flex: 1;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+        }
+        .sell-container {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -50,6 +94,54 @@
             <p>&copy; 2024 Milk Selling Platform</p>
         </footer>
     </div>
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sellMilkForm = document.getElementById('sellMilkForm');
+            if (sellMilkForm) {
+                sellMilkForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const buyerId = document.getElementById('buyerId').value;
+                    const buyerName = document.getElementById('buyerName').value;
+                    const quantity = document.getElementById('quantity').value;
+                    const paymentMethod = document.getElementById('paymentMethod').value;
+                    const milkType = document.getElementById('milkType').value;
+                    const transactionId = `TXN${Date.now()}`;
+
+                    // Create a JavaScript object for the sale
+                    const saleData = {
+                        transactionId: transactionId,
+                        buyerId: buyerId,
+                        buyerName: buyerName,
+                        quantity: quantity,
+                        paymentMethod: paymentMethod,
+                        milkType: milkType
+                    };
+
+                    fetch('http://127.0.0.1:3000/saveMilkSales', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(saleData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Data saved:', data);
+            // Display confirmation to the user or handle next steps
+            alert(`Milk Sold!\n\nTransaction ID: ${transactionId}\nBuyer ID: ${buyerId}\nBuyer: ${buyerName}\nQuantity: ${quantity} liters\nPayment: ${paymentMethod}\nMilk Type: ${milkType}`);
+            
+            // Reset the form
+            document.getElementById('sellMilkForm').reset();
+        })
+        .catch(error => {
+            console.error('Error saving data:', error);
+            // Handle error scenario
+            alert('Failed to save data. Please try again later.');
+        });
+     });
+            }
+        });
+    </script>
 </body>
 </html>

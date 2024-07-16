@@ -2,12 +2,16 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import cors
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Endpoint to receive and save milk sales data
 app.post('/saveMilkSales', (req, res) => {
@@ -19,7 +23,10 @@ app.post('/saveMilkSales', (req, res) => {
     
     try {
         if (fs.existsSync(filePath)) {
-            milkSales = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            const fileData = fs.readFileSync(filePath, 'utf8');
+            if (fileData) {
+                milkSales = JSON.parse(fileData);
+            }
         }
     } catch(err) {
         console.error(err);
