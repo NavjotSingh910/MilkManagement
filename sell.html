@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell Milk - Milk Selling Platform</title>
     <link rel="stylesheet" href="styles.css">
-   
 </head>
 <body>
     <div class="wrapper">
@@ -19,7 +18,7 @@
             <a href="records.html">Records</a>
             <a href="#">Logout</a>
         </nav>
-        <section class="sell-container"  >
+        <section class="sell-container">
             <h2>Sell Milk</h2>
             <form id="sellMilkForm">
                 <label for="buyerId">Buyer ID</label>
@@ -50,7 +49,7 @@
                     <option value="evening">Evening</option>
                 </select>
 
-                <label for="saleDate">Sale Date and Time</label>
+                <label for="saleDate">Sale Date and Time (mm-dd-yyyy)</label>
                 <input type="datetime-local" id="saleDate" name="saleDate">
              
                 <button type="submit">Sell</button>
@@ -61,58 +60,124 @@
         </footer>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sellMilkForm = document.getElementById('sellMilkForm');
+      document.addEventListener('DOMContentLoaded', function() {
+    const sellMilkForm = document.getElementById('sellMilkForm');
 
-            if (sellMilkForm) {
-                sellMilkForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
+    // Function to format date and time to yyyy-mm-ddThh:mm (required format for datetime-local input)
+    function formatDateTime(date) {
+        const year = date.getFullYear();
+        let month = (date.getMonth() + 1).toString().padStart(2, '0');
+        let day = date.getDate().toString().padStart(2, '0');
+        let hours = date.getHours().toString().padStart(2, '0');
+        let minutes = date.getMinutes().toString().padStart(2, '0');
 
-                    const buyerId = document.getElementById('buyerId').value;
-                    const buyerName = document.getElementById('buyerName').value;
-                    const quantity = document.getElementById('quantity').value;
-                    const paymentMethod = document.getElementById('paymentMethod').value;
-                    const milkType = document.getElementById('milkType').value;
-                    const shift = document.getElementById('shift').value;
-                    const transactionDate = document.getElementById('saleDate').value;
-                    const transactionId = `TXN${Date.now()}`;
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
 
-                    // Create a JavaScript object for the sale
-                    const saleData = {
-                        transactionId: transactionId,
-                        buyerId: buyerId,
-                        buyerName: buyerName,
-                        quantity: quantity,
-                        paymentMethod: paymentMethod,
-                        milkType: milkType,
-                        shift: shift,
-                        transactionDate: transactionDate
-                    };
+    // Function to update shift based on current time
+    function updateShiftBasedOnTime() {
+        const currentHour = new Date().getHours();
+        const shiftSelect = document.getElementById('shift');
 
-                    fetch('http://127.0.0.1:3000/saveMilkSales', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(saleData)
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Data saved:', data);
-                        // Display confirmation to the user or handle next steps
-                        alert(`Milk Sold!\n\nTransaction ID: ${transactionId}\nBuyer ID: ${buyerId}\nBuyer: ${buyerName}\nQuantity: ${quantity} liters\nPayment: ${paymentMethod}\nMilk Type: ${milkType}\nShift: ${shift}\nTransaction Date: ${transactionDate}`);
-                        
-                        // Reset the form
-                        sellMilkForm.reset();
-                    })
-                    .catch(error => {
-                        console.error('Error saving data:', error);
-                        // Handle error scenario
-                        alert('Failed to save data. Please try again later.');
-                    });
-                });
+        if (currentHour < 12) {
+            shiftSelect.value = 'morning';
+        } else {
+            shiftSelect.value = 'evening';
+        }
+    }
+
+    if (sellMilkForm) {
+        // Set initial value for saleDate input to current date and time
+        const currentDate = new Date();
+        document.getElementById('saleDate').value = formatDateTime(currentDate);
+
+        // Update shift based on current time
+        updateShiftBasedOnTime();
+
+        // Periodically update shift every minute
+        setInterval(updateShiftBasedOnTime, 60000);
+
+        // Event listener for saleDate input change
+        document.getElementById('saleDate').addEventListener('change', function() {
+            // Clear the interval for automatic shift update
+            clearInterval(intervalId);
+
+            // Update shift based on the selected time
+            const selectedDate = new Date(this.value);
+            const selectedHour = selectedDate.getHours();
+            const shiftSelect = document.getElementById('shift');
+
+            if (selectedHour < 12) {
+                shiftSelect.value = 'morning';
+            } else {
+                shiftSelect.value = 'evening';
             }
+
+            // Restart the interval for automatic shift update
+            intervalId = setInterval(updateShiftBasedOnTime, 60000);
         });
-    </script>
+
+        let intervalId = setInterval(updateShiftBasedOnTime, 60000);
+
+        sellMilkForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const buyerId = document.getElementById('buyerId').value;
+            const buyerName = document.getElementById('buyerName').value;
+            const quantity = document.getElementById('quantity').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            const milkType = document.getElementById('milkType').value;
+            const shift = document.getElementById('shift').value;
+            let transactionDate = document.getElementById('saleDate').value;
+
+            // Convert input date format (mm-dd-yyyy) to ISO date format (yyyy-mm-ddThh:mm:00.000Z)
+            const [mm, dd, yyyy] = transactionDate.split('-');
+            transactionDate = `${yyyy}-${mm}-${dd}T00:00:00`;
+
+            const transactionId = `TXN${Date.now()}`;
+
+            // Create a JavaScript object for the sale
+            const saleData = {
+                transactionId: transactionId,
+                buyerId: buyerId,
+                buyerName: buyerName,
+                quantity: quantity,
+                paymentMethod: paymentMethod,
+                milkType: milkType,
+                shift: shift,
+                transactionDate: transactionDate
+            };
+
+            fetch('http://127.0.0.1:3000/saveMilkSales', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(saleData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Data saved:', data);
+                // Display confirmation to the user or handle next steps
+                alert(`Milk Sold!\n\nTransaction ID: ${transactionId}\nBuyer ID: ${buyerId}\nBuyer: ${buyerName}\nQuantity: ${quantity} liters\nPayment: ${paymentMethod}\nMilk Type: ${milkType}\nShift: ${shift}\nTransaction Date: ${transactionDate}`);
+                
+                // Reset the form
+                sellMilkForm.reset();
+
+                // Restart automatic shift update
+                intervalId = setInterval(updateShiftBasedOnTime, 60000);
+            })
+            .catch(error => {
+                console.error('Error saving data:', error);
+                // Handle error scenario
+                alert('Failed to save data. Please try again later.');
+
+                // Restart automatic shift update
+                intervalId = setInterval(updateShiftBasedOnTime, 60000);
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>
