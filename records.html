@@ -127,258 +127,310 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Constants for pagination
-        const recordsPerPage = 10; // Number of records per page
-        let currentPage = 1; // Current page index
-        let salesData = []; // Variable to store fetched sales data
-        let filteredData = []; // Variable to store filtered sales data
+   document.addEventListener("DOMContentLoaded", function () {
+  // Constants for pagination
+  const recordsPerPage = 10; // Number of records per page
+  let currentPage = 1; // Current page index
+  let salesData = []; // Variable to store fetched sales data
+  let filteredData = []; // Variable to store filtered sales data
 
-        // Fetch initial sales data
-        fetch("http://127.0.0.1:3000/getMilkSales")
-          .then((response) => response.json())
-          .then((data) => {
-            salesData = data;
-            filteredData = data;
-            // Display initial records and chart
-            displaySalesData(filteredData);
-            renderSalesChart(filteredData);
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-            alert("Failed to fetch data. Please try again later.");
-          });
+  // Fetch initial sales data
+  fetch("http://127.0.0.1:3000/getMilkSales")
+    .then((response) => response.json())
+    .then((data) => {
+      salesData = data;
+      filteredData = data;
+      // Display initial records and chart
+      displaySalesData(filteredData);
+      renderSalesChart(filteredData);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      alert("Failed to fetch data. Please try again later.");
+    });
 
-        // Function to display sales data in table
-        function displaySalesData(data) {
-          const salesDataElem = document.getElementById("salesData");
-          salesDataElem.innerHTML = ""; // Clear existing data
+  // Function to display sales data in table
+  function displaySalesData(data) {
+    const salesDataElem = document.getElementById("salesData");
+    salesDataElem.innerHTML = ""; // Clear existing data
 
-          const startIndex = (currentPage - 1) * recordsPerPage;
-          const endIndex = startIndex + recordsPerPage;
+    const startIndex = (currentPage - 1) * recordsPerPage;
+    const endIndex = startIndex + recordsPerPage;
 
-          // Iterate over the subset of data for the current page
-          for (let i = startIndex; i < endIndex && i < data.length; i++) {
-            const sale = data[i];
-            const row = document.createElement("tr");
-            const transactionDate = new Date(sale.transactionDate);
+    // Iterate over the subset of data for the current page
+    for (let i = startIndex; i < endIndex && i < data.length; i++) {
+      const sale = data[i];
+      const row = document.createElement("tr");
+      const transactionDate = new Date(sale.transactionDate);
 
-            // Format date and time separately
-            const formattedDate = transactionDate.toLocaleDateString("en-US");
-            const formattedTime = transactionDate.toLocaleTimeString("en-US");
+      // Format date and time separately
+      const formattedDate = transactionDate.toLocaleDateString("en-US");
+      const formattedTime = transactionDate.toLocaleTimeString("en-US");
 
-            row.innerHTML = `
-              <td>${sale.transactionId}</td>
-              <td>${sale.buyerId}</td>
-              <td>${sale.buyerName}</td>
-              <td>${sale.quantity}</td>
-              <td>${sale.paymentMethod}</td>
-              <td>${sale.milkType}</td>
-              <td>${sale.shift}</td>
-              <td>${formattedDate}</td>
-              <td>${formattedTime}</td>
-            `;
+      row.innerHTML = `
+        <td>${sale.transactionId}</td>
+        <td>${sale.buyerId}</td>
+        <td>${sale.buyerName}</td>
+        <td>${sale.quantity}</td>
+        <td>${sale.paymentMethod}</td>
+        <td>${sale.milkType}</td>
+        <td>${sale.shift}</td>
+        <td>${formattedDate}</td>
+        <td>${formattedTime}</td>
+      `;
 
-            salesDataElem.appendChild(row);
-          }
+      salesDataElem.appendChild(row);
+    }
 
-          // Display pagination controls if needed
-          if (data.length > recordsPerPage) {
-            displayPaginationControls(data.length);
-          } else {
-            document.getElementById("paginationControls").innerHTML = "";
-          }
+    // Display pagination controls if needed
+    if (data.length > recordsPerPage) {
+      displayPaginationControls(data.length);
+    } else {
+      document.getElementById("paginationControls").innerHTML = "";
+    }
 
-          // Update total records count
-          document.getElementById("totalRecords").innerText = `Total Records: ${data.length}`;
-        }
+    // Update total records count
+    document.getElementById("totalRecords").innerText = `Total Records: ${data.length}`;
+  }
 
-        // Function to display pagination controls
-        function displayPaginationControls(totalRecords) {
-          const totalPages = Math.ceil(totalRecords / recordsPerPage);
-          const paginationContainer = document.getElementById("paginationControls");
+  // Function to display pagination controls
+  function displayPaginationControls(totalRecords) {
+    const totalPages = Math.ceil(totalRecords / recordsPerPage);
+    const paginationContainer = document.getElementById("paginationControls");
 
-          paginationContainer.innerHTML = `
-            <button class="prev-btn" ${
-              currentPage === 1 ? "disabled" : ""
-            }>Prev</button>
-            <span>Page ${currentPage} of ${totalPages}</span>
-            <button class="next-btn" ${
-              currentPage === totalPages ? "disabled" : ""
-            }>Next</button>
-          `;
+    paginationContainer.innerHTML = `
+      <button class="prev-btn" ${currentPage === 1 ? "disabled" : ""}>Prev</button>
+      <span>Page ${currentPage} of ${totalPages}</span>
+      <button class="next-btn" ${currentPage === totalPages ? "disabled" : ""}>Next</button>
+    `;
 
-          // Event listeners for pagination buttons
-          const prevBtn = paginationContainer.querySelector(".prev-btn");
-          const nextBtn = paginationContainer.querySelector(".next-btn");
+    // Event listeners for pagination buttons
+    const prevBtn = paginationContainer.querySelector(".prev-btn");
+    const nextBtn = paginationContainer.querySelector(".next-btn");
 
-          prevBtn.addEventListener("click", () => {
-            if (currentPage > 1) {
-              currentPage--;
-              displaySalesData(filteredData);
-            }
-          });
+    prevBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        displaySalesData(filteredData);
+      }
+    });
 
-          nextBtn.addEventListener("click", () => {
-            if (currentPage < totalPages) {
-              currentPage++;
-              displaySalesData(filteredData);
-            }
-          });
-        }
+    nextBtn.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        displaySalesData(filteredData);
+      }
+    });
+  }
 
-        // Function to render sales chart
-        function renderSalesChart(data) {
-          const ctx = document.getElementById("salesChart").getContext("2d");
+  // Function to render sales chart
+  function renderSalesChart(data) {
+    const ctx = document.getElementById("salesChart").getContext("2d");
 
-          // Extract labels (dates) and data (quantities) for chart
-          const labels = data.map((sale) => {
-            const transactionDate = new Date(sale.transactionDate);
-            return transactionDate.toLocaleDateString("en-US");
-          });
+    // Extract labels (dates) and data (quantities) for chart
+    const labels = data.map((sale) => {
+      const transactionDate = new Date(sale.transactionDate);
+      return transactionDate.toLocaleDateString("en-US");
+    });
 
-          const quantities = data.map((sale) => parseFloat(sale.quantity));
+    const quantities = data.map((sale) => parseFloat(sale.quantity));
 
-          // Create chart using Chart.js
-          window.salesChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-              labels: labels,
-              datasets: [
-                {
-                  label: "Quantity Sold (liters)",
-                  data: quantities,
-                  backgroundColor: "rgba(54, 162, 235, 0.6)",
-                  borderColor: "rgba(54, 162, 235, 1)",
-                  borderWidth: 1,
-                },
-              ],
+    // Create chart using Chart.js
+    window.salesChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Quantity (liters)",
+            data: quantities,
+            backgroundColor: "rgba(54, 162, 235, 0.6)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Date",
             },
-            options: {
-              responsive: true,
-              scales: {
-                x: {
-                  title: {
-                    display: true,
-                    text: "Date",
-                  },
-                },
-                y: {
-                  title: {
-                    display: true,
-                    text: "Quantity (liters)",
-                  },
-                },
-              },
+          },
+          y: {
+            title: {
+              display: true,
+              text: "Quantity (liters)",
             },
-          });
-        }
+          },
+        },
+      },
+    });
+  }
 
-        // Filter form submission event listener
-        document.getElementById("filterForm").addEventListener("submit", (event) => {
-          event.preventDefault();
+  // Filter form submission event listener
+  document.getElementById("filterForm").addEventListener("submit", (event) => {
+    event.preventDefault();
 
-          // Get filter values
-          const startDate = document.getElementById("startDateFilter").value;
-          const endDate = document.getElementById("endDateFilter").value;
-          const paymentMethod = document.getElementById("paymentMethodFilter").value;
-          const milkType = document.getElementById("milkTypeFilter").value;
-          const shift = document.getElementById("shiftFilter").value;
+    // Get filter values
+    const startDate = document.getElementById("startDateFilter").value;
+    const endDate = document.getElementById("endDateFilter").value;
+    const paymentMethod = document.getElementById("paymentMethodFilter").value;
+    const milkType = document.getElementById("milkTypeFilter").value;
+    const shift = document.getElementById("shiftFilter").value;
 
-          // Apply filters
-          filteredData = salesData.filter((sale) => {
-            const transactionDate = new Date(sale.transactionDate);
-            const isStartDateMatch = startDate ? transactionDate >= new Date(startDate) : true;
-            const isEndDateMatch = endDate ? transactionDate <= new Date(endDate) : true;
-            const isPaymentMethodMatch = paymentMethod ? sale.paymentMethod === paymentMethod : true;
-            const isMilkTypeMatch = milkType ? sale.milkType === milkType : true;
-            const isShiftMatch = shift ? sale.shift === shift : true;
+    // Apply filters
+    filteredData = salesData.filter((sale) => {
+      const transactionDate = new Date(sale.transactionDate);
+      const isStartDateMatch = startDate ? transactionDate >= new Date(startDate) : true;
+      const isEndDateMatch = endDate ? transactionDate <= new Date(endDate) : true;
+      const isPaymentMethodMatch = paymentMethod ? sale.paymentMethod === paymentMethod : true;
+      const isMilkTypeMatch = milkType ? sale.milkType === milkType : true;
+      const isShiftMatch = shift ? sale.shift === shift : true;
 
-            return (
-              isStartDateMatch &&
-              isEndDateMatch &&
-              isPaymentMethodMatch &&
-              isMilkTypeMatch &&
-              isShiftMatch
-            );
-          });
+      return (
+        isStartDateMatch &&
+        isEndDateMatch &&
+        isPaymentMethodMatch &&
+        isMilkTypeMatch &&
+        isShiftMatch
+      );
+    });
 
-          // Reset current page to 1
-          currentPage = 1;
+    // Reset current page to 1
+    currentPage = 1;
 
-          // Display filtered data and update chart
-          displaySalesData(filteredData);
-          renderSalesChart(filteredData);
+    // Display filtered data and update chart
+    displaySalesData(filteredData);
+    renderSalesChart(filteredData);
+  });
+
+  // Function to download PDF for individual buyer
+  document.getElementById("downloadPdfButton").addEventListener("click", () => {
+    downloadPdf(filteredData);
+  });
+
+  // Function to download multiple PDFs for each buyer
+  document.getElementById("downloadMultiplePdfButton").addEventListener("click", () => {
+    const buyerIds = [...new Set(filteredData.map((sale) => sale.buyerId))];
+    buyerIds.forEach((buyerId) => {
+      const buyerSales = filteredData.filter((sale) => sale.buyerId === buyerId);
+      downloadPdf(buyerSales, buyerId);
+    });
+  });
+
+  // Function to download PDF
+  function downloadPdf(data, buyerId = null) {
+    if (window.jspdf) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      // Add buyer information at the top of the table for multiple PDFs
+      if (buyerId !== null) {
+        doc.text(`Buyer ID: ${buyerId}`, 14, 22);
+        doc.text(`Buyer Name: ${data[0].buyerName}`, 14, 32);
+        doc.autoTable({
+          head: [["Transaction ID", "Quantity (liters)", "Payment Method", "Milk Type", "Shift", "Date", "Time"]],
+          body: data.map(sale => [
+            sale.transactionId,
+            sale.quantity,
+            sale.paymentMethod,
+            sale.milkType,
+            sale.shift,
+            new Date(sale.transactionDate).toLocaleDateString("en-US"),
+            new Date(sale.transactionDate).toLocaleTimeString("en-US")
+          ]),
+          startY: 42,
         });
 
-        // Function to download PDF for individual buyer
-        document.getElementById("downloadPdfButton").addEventListener("click", () => {
-          downloadPdf(filteredData);
+        // Calculate and display total quantity for cash and credit
+        const cashTotal = data.reduce((total, sale) => {
+          return sale.paymentMethod === "cash" ? total + parseFloat(sale.quantity) : total;
+        }, 0);
+        const creditTotal = data.reduce((total, sale) => {
+          return sale.paymentMethod === "credit" ? total + parseFloat(sale.quantity) : total;
+        }, 0);
+
+        // Add totals table at the end of the PDF
+        doc.autoTable({
+          head: [["Payment Method", "Total Quantity (liters)"]],
+          body: [
+            ["Cash", cashTotal.toFixed(2)],
+            ["Credit", creditTotal.toFixed(2)]
+          ],
+          startY: doc.autoTable.previous.finalY + 10,
+        });
+      } else {
+        // Add title for single PDF download
+        doc.text("Sales Records", 14, 22);
+
+        // Prepare table headers and data for single PDF
+        const tableColumn = [
+          "Transaction ID",
+          "Buyer ID",
+          "Buyer Name",
+          "Quantity (liters)",
+          "Payment Method",
+          "Milk Type",
+          "Shift",
+          "Date",
+          "Time",
+        ];
+        const tableRows = [];
+
+        // Prepare rows for each record for single PDF
+        data.forEach((sale) => {
+          const saleData = [
+            sale.transactionId,
+            sale.buyerId,
+            sale.buyerName,
+            sale.quantity,
+            sale.paymentMethod,
+            sale.milkType,
+            sale.shift,
+            new Date(sale.transactionDate).toLocaleDateString("en-US"),
+            new Date(sale.transactionDate).toLocaleTimeString("en-US"),
+          ];
+          tableRows.push(saleData);
         });
 
-        // Function to download multiple PDFs for each buyer
-        document.getElementById("downloadMultiplePdfButton").addEventListener("click", () => {
-          const buyerIds = [...new Set(filteredData.map((sale) => sale.buyerId))];
-          buyerIds.forEach((buyerId) => {
-            const buyerSales = filteredData.filter((sale) => sale.buyerId === buyerId);
-            downloadPdf(buyerSales, buyerId);
-          });
+        // Add table to single PDF
+        doc.autoTable(tableColumn, tableRows, { startY: 30 });
+
+        // Calculate and display total quantity for cash and credit
+        const cashTotal = data.reduce((total, sale) => {
+          return sale.paymentMethod === "cash" ? total + parseFloat(sale.quantity) : total;
+        }, 0);
+        const creditTotal = data.reduce((total, sale) => {
+          return sale.paymentMethod === "credit" ? total + parseFloat(sale.quantity) : total;
+        }, 0);
+
+        // Add totals table at the end of the single PDF
+        doc.autoTable({
+          head: [["Payment Method", "Total Quantity (liters)"]],
+          body: [
+            ["Cash", cashTotal.toFixed(2)],
+            ["Credit", creditTotal.toFixed(2)]
+          ],
+          startY: doc.autoTable.previous.finalY + 10,
         });
+      }
 
-        // Function to download PDF
-        function downloadPdf(data, buyerId = null) {
-          if (window.jspdf) {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+      // Save PDF with appropriate file name
+      if (buyerId !== null) {
+        const fileName = `${buyerId}_${data[0].buyerName}.pdf`;
+        doc.save(fileName);
+      } else {
+        doc.save("sales_records.pdf");
+      }
+    } else {
+      alert("Failed to load jsPDF library.");
+    }
+  }
+});
 
-            // Add title
-            doc.setFontSize(18);
-            doc.text("Sales Records", 14, 22);
-
-            // Prepare table headers and data
-            const tableColumn = [
-              "Transaction ID",
-              "Quantity (liters)",
-              "Payment Method",
-              "Milk Type",
-              "Shift",
-              "Date",
-              "Time",
-            ];
-            const tableRows = [];
-
-            let totalQuantity = 0;
-
-            // Prepare rows for each record
-            data.forEach((sale) => {
-              const saleData = [
-                sale.transactionId,
-                sale.quantity,
-                sale.paymentMethod,
-                sale.milkType,
-                sale.shift,
-                new Date(sale.transactionDate).toLocaleDateString("en-US"),
-                new Date(sale.transactionDate).toLocaleTimeString("en-US"),
-              ];
-              tableRows.push(saleData);
-              totalQuantity += parseFloat(sale.quantity);
-            });
-
-            // Add table to PDF
-            doc.autoTable(tableColumn, tableRows, { startY: 30 });
-
-            // Add total quantity at the end of the data
-            doc.setFontSize(14);
-            doc.text(`Total Milk Quantity: ${totalQuantity} liters`, 14, doc.autoTable.previous.finalY + 10);
-
-            // Save PDF with buyer's ID and Name in the filename
-            const fileName = buyerId ? `sales_records_${buyerId}.pdf` : "sales_records.pdf";
-            doc.save(fileName);
-          } else {
-            alert("Failed to load jsPDF library.");
-          }
-        }
-      });
-    </script>
+ </script>
   </body>
 </html>
