@@ -38,5 +38,1820 @@
     "milkType": "cow",
     "shift": "morning",
     "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },{
+    "transactionId": "TXN1721114273218",
+    "buyerId": "1",
+    "buyerName": "Navjot",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T12:47"
+  },
+  {
+    "transactionId": "TXN1721115323792",
+    "buyerId": "12",
+    "buyerName": "dssf",
+    "quantity": "121",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T13:05"
+  },
+  {
+    "transactionId": "TXN1721115451934",
+    "buyerId": "11",
+    "buyerName": "22",
+    "quantity": "313",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-18T16:07"
+  },
+  {
+    "transactionId": "TXN1721115461908",
+    "buyerId": "11",
+    "buyerName": "111",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-08-01T13:07"
+  },
+  {
+    "transactionId": "TXN1721119098643",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "1111",
+    "paymentMethod": "credit",
+    "milkType": "buffalo",
+    "shift": "evening",
+    "transactionDate": "2024-07-12T14:08"
+  },
+  {
+    "transactionId": "TXN1721119118444",
+    "buyerId": "13",
+    "buyerName": "3",
+    "quantity": "3",
+    "paymentMethod": "credit",
+    "milkType": "mix",
+    "shift": "evening",
+    "transactionDate": "2024-07-04T14:08"
+  },
+  {
+    "transactionId": "TXN1721119617494",
+    "buyerId": "11",
+    "buyerName": "11",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:16"
+  },
+  {
+    "transactionId": "TXN1721119642718",
+    "buyerId": "11",
+    "buyerName": "1dd",
+    "quantity": "12",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-16T14:17"
+  },
+  {
+    "transactionId": "TXN1721119658463",
+    "buyerId": "11",
+    "buyerName": "ss",
+    "quantity": "11",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN47f479cf-11ab-42da-b6a9-d54b1bd2c52f",
+    "buyerId": "c90bb017-a232-4e37-a873-537bf68d200d",
+    "buyerName": "Mamie Daugherty",
+    "quantity": "710",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
+  },
+  {
+    "transactionId": "TXN267",
+    "buyerId": "219",
+    "buyerName": "Kristina Trantow",
+    "quantity": "528",
+    "paymentMethod": "cash",
+    "milkType": "cow",
+    "shift": "morning",
+    "transactionDate": "2024-07-09T14:17"
   }
+
 ]

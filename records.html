@@ -6,107 +6,7 @@
     <title>Milk Selling Platform - Sales Records</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        /* Global styles */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header, footer {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #444;
-        }
-
-        nav a {
-            color: #fff;
-            padding: 1rem;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            background-color: #555;
-        }
-
-        section {
-            padding: 2rem;
-            margin: 1rem auto;
-            max-width: 800px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-
-        .sales-data table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .sales-data th, .sales-data td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .sales-data th {
-            background-color: #f2f2f2;
-            color: #333;
-        }
-
-        .sales-chart {
-            text-align: center;
-        }
-
-        .sales-chart canvas {
-            max-width: 100%;
-            margin: auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-
-        .pagination {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .pagination button {
-            margin: 0 5px;
-            padding: 5px 10px;
-            background-color: #007bff;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .pagination button.disabled {
-            opacity: 0.5;
-            cursor: default;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="wrapper">
@@ -350,20 +250,41 @@
       const shiftFilter =
         filters.shift === "" || sale.shift === filters.shift;
 
-      return  paymentMethodFilter && milkTypeFilter && shiftFilter;
+      return dateFilter && paymentMethodFilter && milkTypeFilter && shiftFilter;
     });
   }
 
-  // Function to filter by date range
-  function filterByDateRange(transactionDate, dateRange) {
-    const transactionDateObj = new Date(transactionDate);
-    const startDate = new Date(dateRange.startDate);
-    const endDate = new Date(dateRange.endDate);
+ // Function to filter by date range
+function filterByDateRange(transactionDate, dateRange) {
+  const transactionDateObj = new Date(transactionDate);
 
-    return (
-      transactionDateObj >= startDate && transactionDateObj <= endDate
-    );
+  // Parse start and end dates only if they are provided
+  let startDate = null;
+  let endDate = null;
+  
+  if (dateRange.startDate) {
+    startDate = new Date(dateRange.startDate);
   }
+  
+  if (dateRange.endDate) {
+    endDate = new Date(dateRange.endDate);
+  }
+
+  // If no start or end date is provided, return true to include all dates
+  if (!startDate && !endDate) {
+    return true;
+  }
+
+  // Check if transactionDateObj is valid
+  if (isNaN(transactionDateObj.getTime())) {
+    return false; // Invalid date, return false
+  }
+
+  // Check if transactionDate is within the range
+  return (!startDate || transactionDateObj >= startDate) && (!endDate || transactionDateObj <= endDate);
+}
+
+
 
   // Function to apply filters and update data display
   function applyFilters() {
