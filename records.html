@@ -1,289 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milk Selling Platform - Sales Records</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Include Chart.js -->
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-      /* Global styles */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        color: #333;
-      }
+        /* Global styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-      .wrapper {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-      header,
-      footer {
-        background-color: #333;
-        color: #fff;
-        padding: 1rem;
-        text-align: center;
-      }
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
 
-      nav {
-        display: flex;
-        justify-content: center;
-        background-color: #444;
-      }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
 
-      nav a {
-        color: #fff;
-        padding: 1rem;
-        text-decoration: none;
-      }
+        nav a {
+            color: #fff;
+            padding: 1rem;
+            text-decoration: none;
+        }
 
-      nav a:hover {
-        background-color: #555;
-      }
+        nav a:hover {
+            background-color: #555;
+        }
 
-      section {
-        padding: 2rem;
-        margin: 1rem auto;
-        max-width: 800px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 800px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-      h2 {
-        text-align: center;
-        color: #333;
-      }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
 
-      .sales-data table {
-        width: 100%;
-        border-collapse: collapse;
-      }
+        .sales-data table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-      .sales-data th,
-      .sales-data td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
+        .sales-data th, .sales-data td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
 
-      .sales-data th {
-        background-color: #f2f2f2;
-        color: #333;
-      }
+        .sales-data th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
 
-      .sales-chart {
-        text-align: center;
-      }
+        .sales-chart {
+            text-align: center;
+        }
 
-      .sales-chart canvas {
-        max-width: 100%;
-        margin: auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-      }
+        .sales-chart canvas {
+            max-width: 100%;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .pagination {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .pagination button.disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="wrapper">
-      <header>
-        <h1>Milk Selling Platform</h1>
-      </header>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="#">Buy Milk</a>
-        <a href="sell.html">Sell Milk</a>
-        <a href="#">Records</a>
-        <a href="#">Logout</a>
-      </nav>
-      <section class="sales-data">
-        <h2>Sales Records</h2>
-        <table id="salesTable">
-          <thead>
-            <tr>
-              <th>Transaction ID</th>
-              <th>Buyer ID</th>
-              <th>Buyer Name</th>
-              <th>Quantity (liters)</th>
-              <th>Payment Method</th>
-              <th>Milk Type</th>
-              <th>Shift</th>
-              <th>Date</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody id="salesData">
-            <!-- Sales data rows will be dynamically added here -->
-          </tbody>
-        </table>
-      </section>
-      <section class="sales-chart">
-        <h2>Sales Chart</h2>
-        <canvas id="salesChart" width="800" height="400"></canvas>
-      </section>
-      <footer>
-        <p>&copy; 2024 Milk Selling Platform</p>
-      </footer>
+        <header>
+            <h1>Milk Selling Platform</h1>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">Buy Milk</a>
+            <a href="sell.html">Sell Milk</a>
+            <a href="records.html">Records</a>
+            <a href="#">Logout</a>
+        </nav>
+        <section class="filter-container">
+            <h2>Filter Options</h2>
+            <form id="filterForm">
+                <label for="startDateFilter">Start Date:</label>
+                <input type="date" id="startDateFilter" name="startDateFilter">
+        
+                <label for="endDateFilter">End Date:</label>
+                <input type="date" id="endDateFilter" name="endDateFilter">
+        
+                <label for="paymentMethodFilter">Payment Method:</label>
+                <select id="paymentMethodFilter" name="paymentMethodFilter">
+                    <option value="">All</option>
+                    <option value="cash">Cash</option>
+                    <option value="credit">Credit</option>
+                </select>
+        
+                <label for="milkTypeFilter">Milk Type:</label>
+                <select id="milkTypeFilter" name="milkTypeFilter">
+                    <option value="">All</option>
+                    <option value="cow">Cow</option>
+                    <option value="buffalo">Buffalo</option>
+                    <option value="mix">Mix</option>
+                </select>
+        
+                <label for="shiftFilter">Shift:</label>
+                <select id="shiftFilter" name="shiftFilter">
+                    <option value="">All</option>
+                    <option value="morning">Morning</option>
+                    <option value="evening">Evening</option>
+                </select>
+        
+                <button type="submit">Apply Filters</button>
+            </form>
+        </section>
+        <section class="sales-data">
+            <h2>Sales Records</h2>
+            <table id="salesTable">
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Buyer ID</th>
+                        <th>Buyer Name</th>
+                        <th>Quantity (liters)</th>
+                        <th>Payment Method</th>
+                        <th>Milk Type</th>
+                        <th>Shift</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="salesData">
+                    <!-- Sales data rows will be dynamically added here -->
+                </tbody>
+            </table>
+            <div class="pagination" id="paginationControls"></div>
+        </section>
+        <section class="sales-chart">
+            <h2>Sales Chart</h2>
+            <canvas id="salesChart" width="800" height="400"></canvas>
+        </section>
+        <footer>
+            <p>&copy; 2024 Milk Selling Platform</p>
+        </footer>
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Constants for pagination
-        const recordsPerPage = 10; // Number of records per page
-        let currentPage = 1; // Current page index
+    document.addEventListener("DOMContentLoaded", function () {
+  // Constants for pagination
+  const recordsPerPage = 10; // Number of records per page
+  let currentPage = 1; // Current page index
+  let salesData = []; // Variable to store fetched sales data
 
-        // Fetch sales data
-        fetch("http://127.0.0.1:3000/getMilkSales")
-          .then((response) => response.json())
-          .then((data) => {
-            // Display initial records and chart
-            displaySalesData(data);
-            renderSalesChart(data);
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-            alert("Failed to fetch data. Please try again later.");
-          });
-
-        // Function to display sales data in table
-        function displaySalesData(data) {
-          const salesData = document.getElementById("salesData");
-          salesData.innerHTML = ""; // Clear existing data
-
-          const startIndex = (currentPage - 1) * recordsPerPage;
-          const endIndex = startIndex + recordsPerPage;
-
-          // Iterate over the subset of data for the current page
-          for (let i = startIndex; i < endIndex && i < data.length; i++) {
-            const sale = data[i];
-            const row = document.createElement("tr");
-            const transactionDate = new Date(sale.transactionDate);
-
-            // Format date and time separately
-            const formattedDate = transactionDate.toLocaleDateString("en-US");
-            const formattedTime = transactionDate.toLocaleTimeString("en-US");
-
-            row.innerHTML = `
-                <td>${sale.transactionId}</td>
-                <td>${sale.buyerId}</td>
-                <td>${sale.buyerName}</td>
-                <td>${sale.quantity}</td>
-                <td>${sale.paymentMethod}</td>
-                <td>${sale.milkType}</td>
-                <td>${sale.shift}</td>
-                <td>${formattedDate}</td>
-                <td>${formattedTime}</td>
-            `;
-
-            salesData.appendChild(row);
-          }
-
-          // Display pagination controls if needed
-          if (data.length > recordsPerPage) {
-            displayPaginationControls(data.length);
-          }
-        }
-
-        // Function to display pagination controls
-        function displayPaginationControls(totalRecords) {
-          const totalPages = Math.ceil(totalRecords / recordsPerPage);
-
-          let paginationHTML = `
-            <div class="pagination">
-                <button class="prev-btn" ${
-                  currentPage === 1 ? "disabled" : ""
-                }>Prev</button>
-                <span>Page ${currentPage} of ${totalPages}</span>
-                <button class="next-btn" ${
-                  currentPage === totalPages ? "disabled" : ""
-                }>Next</button>
-            </div>
-        `;
-
-          // Insert pagination controls after the sales data table
-          const salesSection = document.querySelector(".sales-data");
-          const paginationContainer = document.createElement("div");
-          paginationContainer.innerHTML = paginationHTML;
-          salesSection.appendChild(paginationContainer);
-
-          // Event listeners for pagination buttons
-          const prevBtn = document.querySelector(".prev-btn");
-          const nextBtn = document.querySelector(".next-btn");
-
-          prevBtn.addEventListener("click", () => {
-            if (currentPage > 1) {
-              currentPage--;
-              displaySalesData(data);
-            }
-          });
-
-          nextBtn.addEventListener("click", () => {
-            if (currentPage < totalPages) {
-              currentPage++;
-              displaySalesData(data);
-            }
-          });
-        }
-
-        // Function to render sales chart
-     // Function to render sales chart
-function renderSalesChart(data) {
-    // Extract labels (dates) and data (quantities) for chart
-    const labels = data.map(sale => {
-        const transactionDate = new Date(sale.transactionDate);
-        return transactionDate.toLocaleDateString('en-US');
+  // Fetch initial sales data
+  fetch("http://127.0.0.1:3000/getMilkSales")
+    .then((response) => response.json())
+    .then((data) => {
+      salesData = data;
+      // Display initial records and chart
+      displaySalesData(salesData);
+      renderSalesChart(salesData);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      alert("Failed to fetch data. Please try again later.");
     });
 
-    const quantities = data.map(sale => parseFloat(sale.quantity));
+  // Function to display sales data in table
+  function displaySalesData(data) {
+    const salesDataElem = document.getElementById("salesData");
+    salesDataElem.innerHTML = ""; // Clear existing data
 
-    // Get canvas element
-    const ctx = document.getElementById('salesChart').getContext('2d');
+    const startIndex = (currentPage - 1) * recordsPerPage;
+    const endIndex = startIndex + recordsPerPage;
 
-    // Adjust chart height statically
-    ctx.canvas.height = 300; // Adjust as needed
+    // Iterate over the subset of data for the current page
+    for (let i = startIndex; i < endIndex && i < data.length; i++) {
+      const sale = data[i];
+      const row = document.createElement("tr");
+      const transactionDate = new Date(sale.transactionDate);
+
+      // Format date and time separately
+      const formattedDate = transactionDate.toLocaleDateString("en-US");
+      const formattedTime = transactionDate.toLocaleTimeString("en-US");
+
+      row.innerHTML = `
+          <td>${sale.transactionId}</td>
+          <td>${sale.buyerId}</td>
+          <td>${sale.buyerName}</td>
+          <td>${sale.quantity}</td>
+          <td>${sale.paymentMethod}</td>
+          <td>${sale.milkType}</td>
+          <td>${sale.shift}</td>
+          <td>${formattedDate}</td>
+          <td>${formattedTime}</td>
+      `;
+
+      salesDataElem.appendChild(row);
+    }
+
+    // Display pagination controls if needed
+    if (data.length > recordsPerPage) {
+      displayPaginationControls(data.length);
+    }
+  }
+
+  // Function to display pagination controls
+  function displayPaginationControls(totalRecords) {
+    const totalPages = Math.ceil(totalRecords / recordsPerPage);
+
+    let paginationHTML = `
+        <div class="pagination">
+            <button class="prev-btn" ${
+              currentPage === 1 ? "disabled" : ""
+            }>Prev</button>
+            <span>Page ${currentPage} of ${totalPages}</span>
+            <button class="next-btn" ${
+              currentPage === totalPages ? "disabled" : ""
+            }>Next</button>
+        </div>
+    `;
+
+    // Insert pagination controls after the sales data table
+    const salesSection = document.querySelector(".sales-data");
+    const paginationContainer = document.createElement("div");
+    paginationContainer.innerHTML = paginationHTML;
+    salesSection.appendChild(paginationContainer);
+
+    // Event listeners for pagination buttons
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    prevBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        displaySalesData(salesData);
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        displaySalesData(salesData);
+      }
+    });
+  }
+
+  // Function to render sales chart
+  function renderSalesChart(data) {
+    const ctx = document.getElementById("salesChart").getContext("2d");
+
+    // Extract labels (dates) and data (quantities) for chart
+    const labels = data.map((sale) => {
+      const transactionDate = new Date(sale.transactionDate);
+      return transactionDate.toLocaleDateString("en-US");
+    });
+
+    const quantities = data.map((sale) => parseFloat(sale.quantity));
 
     // Create chart using Chart.js
-    const chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Quantity Sold (liters)',
-                data: quantities,
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
+    window.salesChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Quantity Sold (liters)",
+            data: quantities,
+            backgroundColor: "rgba(54, 162, 235, 0.6)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: false, // Disable responsiveness to keep fixed height
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: "Quantity (liters)",
+            },
+          },
+          x: {
+            title: {
+              display: true,
+              text: "Date",
+            },
+          },
         },
-        options: {
-            responsive: false, // Disable responsiveness to keep fixed height
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Quantity (liters)'
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Date'
-                    }
-                }
-            }
-        }
+      },
     });
-}
- });
+  }
+
+  // Function to filter sales data based on user-selected filters
+  function filterSalesData(data, filters) {
+    return data.filter((sale) => {
+      // Check if each sale meets all selected filter criteria
+      const dateFilter = filters.dateRange
+        ? filterByDateRange(sale.transactionDate, filters.dateRange)
+        : true;
+      const paymentMethodFilter =
+        filters.paymentMethod === "" ||
+        sale.paymentMethod === filters.paymentMethod;
+      const milkTypeFilter =
+        filters.milkType === "" || sale.milkType === filters.milkType;
+      const shiftFilter =
+        filters.shift === "" || sale.shift === filters.shift;
+
+      return  paymentMethodFilter && milkTypeFilter && shiftFilter;
+    });
+  }
+
+  // Function to filter by date range
+  function filterByDateRange(transactionDate, dateRange) {
+    const transactionDateObj = new Date(transactionDate);
+    const startDate = new Date(dateRange.startDate);
+    const endDate = new Date(dateRange.endDate);
+
+    return (
+      transactionDateObj >= startDate && transactionDateObj <= endDate
+    );
+  }
+
+  // Function to apply filters and update data display
+  function applyFilters() {
+    const filters = {
+      dateRange: {
+        startDate: document.getElementById("startDateFilter").value,
+        endDate: document.getElementById("endDateFilter").value,
+      },
+      paymentMethod: document.getElementById("paymentMethodFilter").value,
+      milkType: document.getElementById("milkTypeFilter").value,
+      shift: document.getElementById("shiftFilter").value,
+    };
+
+    const filteredData = filterSalesData(salesData, filters);
+
+    // Update table display with filtered data
+    displaySalesData(filteredData);
+
+    // Update chart display with filtered data
+    updateChart(filteredData);
+  }
+
+  // Function to update chart with filtered data
+  function updateChart(data) {
+    // Destroy existing chart if it exists
+    if (window.salesChart) {
+      window.salesChart.destroy();
+    }
+
+    // Render new chart with filtered data
+    renderSalesChart(data);
+  }
+
+  // Event listener for form submission (apply filters)
+  document
+    .getElementById("filterForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      applyFilters();
+    });
+});
+
     </script>
-  </body>
+</body>
 </html>
