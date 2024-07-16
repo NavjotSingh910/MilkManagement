@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Milk - Milk Selling Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Milk Selling Platform</h1>
+        </header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="#">Buy Milk</a>
+            <a href="sell.html">Sell Milk</a>
+            <a href="#">Records</a>
+            <a href="#">Logout</a>
+        </nav>
+        <section class="sell-container">
+            <h2>Sell Milk</h2>
+            <form id="sellMilkForm">
+                <label for="buyerId">Buyer ID</label>
+                <input type="text" id="buyerId" name="buyerId" placeholder="Enter unique buyer ID" required>
+
+                <label for="buyerName">Buyer Name</label>
+                <input type="text" id="buyerName" name="buyerName" required>
+
+                <label for="quantity">Quantity (liters)</label>
+                <input type="number" id="quantity" name="quantity" step="0.1" required>
+
+                <label for="paymentMethod">Payment Method</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="cash">Cash</option>
+                    <option value="credit">Credit</option>
+                </select>
+
+                <label for="milkType">Milk Type</label>
+                <select id="milkType" name="milkType" required>
+                    <option value="cow">Cow</option>
+                    <option value="buffalo">Buffalo</option>
+                    <option value="mix">Mix</option>
+                </select>
+
+                <button type="submit">Sell</button>
+            </form>
+        </section>
+        <footer>
+            <p>&copy; 2024 Milk Selling Platform</p>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
