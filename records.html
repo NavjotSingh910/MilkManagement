@@ -56,6 +56,11 @@
         <form id="filterForm">
           <div class="filter-group">
             <div class="filter-row">
+              <label for="buyerIdFilter">Buyer ID:</label>
+              <input type="text" id="buyerIdFilter" name="buyerIdFilter" />
+            </div>
+            
+            <div class="filter-row">
               <label for="startDateFilter">Start Date:</label>
               <input type="date" id="startDateFilter" name="startDateFilter" />
             </div>
@@ -224,51 +229,58 @@
   }
 
   // Function to render sales chart
-  function renderSalesChart(data) {
-    const ctx = document.getElementById("salesChart").getContext("2d");
+function renderSalesChart(data) {
+  const ctx = document.getElementById("salesChart").getContext("2d");
 
-    // Extract labels (dates) and data (quantities) for chart
-    const labels = data.map((sale) => {
-      const transactionDate = new Date(sale.transactionDate);
-      return transactionDate.toLocaleDateString("en-US");
-    });
+  // Check if salesChart instance exists and is a Chart.js chart
+  if (window.salesChart instanceof Chart) {
+    // Destroy existing chart instance
+    window.salesChart.destroy();
+  }
 
-    const quantities = data.map((sale) => parseFloat(sale.quantity));
+  // Extract labels (dates) and data (quantities) for chart
+  const labels = data.map((sale) => {
+    const transactionDate = new Date(sale.transactionDate);
+    return transactionDate.toLocaleDateString("en-US");
+  });
 
-    // Create chart using Chart.js
-    window.salesChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: "Quantity (liters)",
-            data: quantities,
-            backgroundColor: "rgba(54, 162, 235, 0.6)",
-            borderColor: "rgba(54, 162, 235, 1)",
-            borderWidth: 1,
+  const quantities = data.map((sale) => parseFloat(sale.quantity));
+
+  // Create new chart using Chart.js
+  window.salesChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Quantity (liters)",
+          data: quantities,
+          backgroundColor: "rgba(54, 162, 235, 0.6)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Date",
           },
-        ],
-      },
-      options: {
-        responsive: true,
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: "Date",
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: "Quantity (liters)",
-            },
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Quantity (liters)",
           },
         },
       },
-    });
-  }
+    },
+  });
+}
+
 
   // Filter form submission event listener
   document.getElementById("filterForm").addEventListener("submit", (event) => {
@@ -280,22 +292,25 @@
     const paymentMethod = document.getElementById("paymentMethodFilter").value;
     const milkType = document.getElementById("milkTypeFilter").value;
     const shift = document.getElementById("shiftFilter").value;
-
+    const buyerIdFilter = document.getElementById("buyerIdFilter").value;
     // Apply filters
     filteredData = salesData.filter((sale) => {
+     
       const transactionDate = new Date(sale.transactionDate);
       const isStartDateMatch = startDate ? transactionDate >= new Date(startDate) : true;
       const isEndDateMatch = endDate ? transactionDate <= new Date(endDate) : true;
       const isPaymentMethodMatch = paymentMethod ? sale.paymentMethod === paymentMethod : true;
       const isMilkTypeMatch = milkType ? sale.milkType === milkType : true;
       const isShiftMatch = shift ? sale.shift === shift : true;
+      const isBuyerIdMatch = buyerIdFilter ? sale.buyerId === buyerIdFilter : true;
 
       return (
         isStartDateMatch &&
         isEndDateMatch &&
         isPaymentMethodMatch &&
         isMilkTypeMatch &&
-        isShiftMatch
+        isShiftMatch &&
+        isBuyerIdMatch
       );
     });
 
