@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Milk Selling Platform - Sales Records</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+    /* Reset default form styles */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust gap between groups */
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust gap between rows */
+}
+
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust gap between label and input/select */
+}
+
+.filter-row label {
+    white-space: nowrap; /* Prevent label text from wrapping */
+    min-width: 100px; /* Adjust as needed for label width */
+}
+
+.filter-row select,
+.filter-row input[type="date"] {
+    width: 200px; /* Adjust width as needed */
+}
+
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
         <header>
             <h1>Milk Selling Platform</h1>
@@ -74,6 +105,7 @@
                 </tbody>
             </table>
             <div class="pagination" id="paginationControls"></div>
+            <div class="total-records" id="totalRecords">Total Records: 0</div>
         </section>
         <section class="sales-chart">
             <h2>Sales Chart</h2>
@@ -85,244 +117,192 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    // Constants for pagination
-    const recordsPerPage = 10; // Number of records per page
-    let currentPage = 1; // Current page index
-    let salesData = []; // Variable to store fetched sales data
-    let paginationContainer = document.getElementById("paginationControls");
+  document.addEventListener("DOMContentLoaded", function () {
+  // Constants for pagination
+  const recordsPerPage = 10; // Number of records per page
+  let currentPage = 1; // Current page index
+  let salesData = []; // Variable to store fetched sales data
+  let filteredData = []; // Variable to store filtered sales data
 
-    // Fetch initial sales data
-    fetch("http://127.0.0.1:3000/getMilkSales")
-        .then((response) => response.json())
-        .then((data) => {
-            salesData = data;
-            // Display initial records and chart
-            displaySalesData(salesData);
-            renderSalesChart(salesData);
-        })
-        .catch((error) => {
-            console.error("Error fetching data:", error);
-            alert("Failed to fetch data. Please try again later.");
-        });
+  // Fetch initial sales data
+  fetch("http://127.0.0.1:3000/getMilkSales")
+    .then((response) => response.json())
+    .then((data) => {
+      salesData = data;
+      filteredData = data;
+      // Display initial records and chart
+      displaySalesData(filteredData);
+      renderSalesChart(filteredData);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+      alert("Failed to fetch data. Please try again later.");
+    });
 
-    // Function to display sales data in table
-    function displaySalesData(data) {
-        const salesDataElem = document.getElementById("salesData");
-        salesDataElem.innerHTML = ""; // Clear existing data
+  // Function to display sales data in table
+  function displaySalesData(data) {
+    const salesDataElem = document.getElementById("salesData");
+    salesDataElem.innerHTML = ""; // Clear existing data
 
-        const startIndex = (currentPage - 1) * recordsPerPage;
-        const endIndex = startIndex + recordsPerPage;
+    const startIndex = (currentPage - 1) * recordsPerPage;
+    const endIndex = startIndex + recordsPerPage;
 
-        // Iterate over the subset of data for the current page
-        for (let i = startIndex; i < endIndex && i < data.length; i++) {
-            const sale = data[i];
-            const row = document.createElement("tr");
-            const transactionDate = new Date(sale.transactionDate);
+    // Iterate over the subset of data for the current page
+    for (let i = startIndex; i < endIndex && i < data.length; i++) {
+      const sale = data[i];
+      const row = document.createElement("tr");
+      const transactionDate = new Date(sale.transactionDate);
 
-            // Format date and time separately
-            const formattedDate = transactionDate.toLocaleDateString("en-US");
-            const formattedTime = transactionDate.toLocaleTimeString("en-US");
+      // Format date and time separately
+      const formattedDate = transactionDate.toLocaleDateString("en-US");
+      const formattedTime = transactionDate.toLocaleTimeString("en-US");
 
-            row.innerHTML = `
-                <td>${sale.transactionId}</td>
-                <td>${sale.buyerId}</td>
-                <td>${sale.buyerName}</td>
-                <td>${sale.quantity}</td>
-                <td>${sale.paymentMethod}</td>
-                <td>${sale.milkType}</td>
-                <td>${sale.shift}</td>
-                <td>${formattedDate}</td>
-                <td>${formattedTime}</td>
-            `;
+      row.innerHTML = `
+          <td>${sale.transactionId}</td>
+          <td>${sale.buyerId}</td>
+          <td>${sale.buyerName}</td>
+          <td>${sale.quantity}</td>
+          <td>${sale.paymentMethod}</td>
+          <td>${sale.milkType}</td>
+          <td>${sale.shift}</td>
+          <td>${formattedDate}</td>
+          <td>${formattedTime}</td>
+      `;
 
-            salesDataElem.appendChild(row);
-        }
-
-        // Display pagination controls if needed
-        if (data.length > recordsPerPage) {
-            displayPaginationControls(data.length);
-        } else {
-            paginationContainer.innerHTML = ""; // Clear pagination if no need to display
-        }
+      salesDataElem.appendChild(row);
     }
 
-    // Function to display pagination controls
-    function displayPaginationControls(totalRecords) {
-        const totalPages = Math.ceil(totalRecords / recordsPerPage);
-
-        let paginationHTML = `
-            <div class="pagination">
-                <button class="prev-btn" ${
-                    currentPage === 1 ? "disabled" : ""
-                }>Prev</button>
-                <span>Page ${currentPage} of ${totalPages}</span>
-                <button class="next-btn" ${
-                    currentPage === totalPages ? "disabled" : ""
-                }>Next</button>
-            </div>
-        `;
-
-        paginationContainer.innerHTML = paginationHTML;
-
-        // Event listeners for pagination buttons
-        const prevBtn = paginationContainer.querySelector(".prev-btn");
-        const nextBtn = paginationContainer.querySelector(".next-btn");
-
-        prevBtn.addEventListener("click", () => {
-            if (currentPage > 1) {
-                currentPage--;
-                displaySalesData(salesData);
-            }
-        });
-
-        nextBtn.addEventListener("click", () => {
-            if (currentPage < totalPages) {
-                currentPage++;
-                displaySalesData(salesData);
-            }
-        });
+    // Display pagination controls if needed
+    if (data.length > recordsPerPage) {
+      displayPaginationControls(data.length);
     }
+  }
 
-    // Function to render sales chart
-    function renderSalesChart(data) {
-        const ctx = document.getElementById("salesChart").getContext("2d");
+  // Function to display pagination controls
+  function displayPaginationControls(totalRecords) {
+    const totalPages = Math.ceil(totalRecords / recordsPerPage);
+    const paginationContainer = document.getElementById("paginationControls");
 
-        // Extract labels (dates) and data (quantities) for chart
-        const labels = data.map((sale) => {
-            const transactionDate = new Date(sale.transactionDate);
-            return transactionDate.toLocaleDateString("en-US");
-        });
+    paginationContainer.innerHTML = `
+        <button class="prev-btn" ${
+          currentPage === 1 ? "disabled" : ""
+        }>Prev</button>
+        <span>Page ${currentPage} of ${totalPages}</span>
+        <button class="next-btn" ${
+          currentPage === totalPages ? "disabled" : ""
+        }>Next</button>
+    `;
 
-        const quantities = data.map((sale) => parseFloat(sale.quantity));
+    // Event listeners for pagination buttons
+    const prevBtn = paginationContainer.querySelector(".prev-btn");
+    const nextBtn = paginationContainer.querySelector(".next-btn");
 
-        // Create chart using Chart.js
-        window.salesChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: "Quantity Sold (liters)",
-                        data: quantities,
-                        backgroundColor: "rgba(54, 162, 235, 0.6)",
-                        borderColor: "rgba(54, 162, 235, 1)",
-                        borderWidth: 1,
-                    },
-                ],
-            },
-            options: {
-                responsive: false, // Disable responsiveness to keep fixed height
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: "Quantity (liters)",
-                        },
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: "Date",
-                        },
-                    },
-                },
-            },
-        });
-    }
-
-    // Function to filter sales data based on user-selected filters
-    function filterSalesData(data, filters) {
-        return data.filter((sale) => {
-            // Check if each sale meets all selected filter criteria
-            const dateFilter = filters.dateRange
-                ? filterByDateRange(sale.transactionDate, filters.dateRange)
-                : true;
-            const paymentMethodFilter =
-                filters.paymentMethod === "" ||
-                sale.paymentMethod === filters.paymentMethod;
-            const milkTypeFilter =
-                filters.milkType === "" || sale.milkType === filters.milkType;
-            const shiftFilter =
-                filters.shift === "" || sale.shift === filters.shift;
-
-            return dateFilter && paymentMethodFilter && milkTypeFilter && shiftFilter;
-        });
-    }
-
-    // Function to filter by date range
-    function filterByDateRange(transactionDate, dateRange) {
-        const transactionDateObj = new Date(transactionDate);
-
-        // Parse start and end dates only if they are provided
-        let startDate = null;
-        let endDate = null;
-
-        if (dateRange.startDate) {
-            startDate = new Date(dateRange.startDate);
-        }
-
-        if (dateRange.endDate) {
-            endDate = new Date(dateRange.endDate);
-        }
-
-        // If no start or end date is provided, return true to include all dates
-        if (!startDate && !endDate) {
-            return true;
-        }
-
-        // Check if transactionDateObj is valid
-        if (isNaN(transactionDateObj.getTime())) {
-            return false; // Invalid date, return false
-        }
-
-        // Check if transactionDate is within the range
-        return (!startDate || transactionDateObj >= startDate) && (!endDate || transactionDateObj <= endDate);
-    }
-
-    // Function to apply filters and update data display
-    function applyFilters() {
-        const filters = {
-            dateRange: {
-                startDate: document.getElementById("startDateFilter").value,
-                endDate: document.getElementById("endDateFilter").value,
-            },
-            paymentMethod: document.getElementById("paymentMethodFilter").value,
-            milkType: document.getElementById("milkTypeFilter").value,
-            shift: document.getElementById("shiftFilter").value,
-        };
-
-        const filteredData = filterSalesData(salesData, filters);
-
-        // Update table display with filtered data
+    prevBtn.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
         displaySalesData(filteredData);
+      }
+    });
 
-        // Update chart display with filtered data
-        updateChart(filteredData);
-    }
+    nextBtn.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        displaySalesData(filteredData);
+      }
+    });
+  }
 
-    // Function to update chart with filtered data
-    function updateChart(data) {
-        // Destroy existing chart if it exists
-        if (window.salesChart) {
-            window.salesChart.destroy();
-        }
+  // Function to render sales chart
+  function renderSalesChart(data) {
+    const ctx = document.getElementById("salesChart").getContext("2d");
 
-        // Render new chart with filtered data
-        renderSalesChart(data);
-    }
+    // Extract labels (dates) and data (quantities) for chart
+    const labels = data.map((sale) => {
+      const transactionDate = new Date(sale.transactionDate);
+      return transactionDate.toLocaleDateString("en-US");
+    });
 
-    // Event listener for form submission (apply filters)
-    document
-        .getElementById("filterForm")
-        .addEventListener("submit", function (e) {
-            e.preventDefault();
-            applyFilters();
-        });
+    const quantities = data.map((sale) => parseFloat(sale.quantity));
+
+    // Create chart using Chart.js
+    window.salesChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Quantity Sold (liters)",
+            data: quantities,
+            backgroundColor: "rgba(54, 162, 235, 0.6)",
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: "Date",
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: "Quantity (liters)",
+            },
+          },
+        },
+      },
+    });
+  }
+
+  // Filter form submission event listener
+  document.getElementById("filterForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Get filter values
+    const startDate = document.getElementById("startDateFilter").value;
+    const endDate = document.getElementById("endDateFilter").value;
+    const paymentMethod = document.getElementById("paymentMethodFilter").value;
+    const milkType = document.getElementById("milkTypeFilter").value;
+    const shift = document.getElementById("shiftFilter").value;
+
+    // Filter sales data based on selected filters
+    filteredData = salesData.filter((sale) => {
+      const transactionDate = new Date(sale.transactionDate);
+      const isStartDateMatch = startDate
+        ? transactionDate >= new Date(startDate)
+        : true;
+      const isEndDateMatch = endDate
+        ? transactionDate <= new Date(endDate)
+        : true;
+      const isPaymentMethodMatch = paymentMethod
+        ? sale.paymentMethod === paymentMethod
+        : true;
+      const isMilkTypeMatch = milkType ? sale.milkType === milkType : true;
+      const isShiftMatch = shift ? sale.shift === shift : true;
+
+      return (
+        isStartDateMatch &&
+        isEndDateMatch &&
+        isPaymentMethodMatch &&
+        isMilkTypeMatch &&
+        isShiftMatch
+      );
+    });
+
+    // Reset current page to 1
+    currentPage = 1;
+
+    // Display filtered data and update chart
+    displaySalesData(filteredData);
+    renderSalesChart(filteredData);
+  });
 });
 
-    </script>
-</body>
+  </script>
+  </body>
 </html>
