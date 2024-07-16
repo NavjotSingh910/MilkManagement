@@ -47,6 +47,27 @@ app.post('/saveMilkSales', (req, res) => {
     }
 });
 
+// Endpoint to fetch milk sales data
+app.get('/getMilkSales', (req, res) => {
+    const filePath = path.join(__dirname, 'milk_sales.json');
+
+    // Read existing data from JSON file
+    try {
+        if (fs.existsSync(filePath)) {
+            const fileData = fs.readFileSync(filePath, 'utf8');
+            const milkSales = JSON.parse(fileData);
+            console.log(milkSales);
+            res.json(milkSales);
+        } else {
+            
+            res.json([]); // Return empty array if file doesn't exist
+        }
+    } catch(err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to read data file.' });
+    }
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
