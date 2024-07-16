@@ -115,6 +115,7 @@
         <div class="pagination" id="paginationControls"></div>
         <div class="total-records" id="totalRecords">Total Records: 0</div>
         <button id="downloadPdfButton">Download PDF</button>
+        <button id="downloadMultiplePdfButton">Download Multiple PDFs</button>
       </section>
       <section class="sales-chart">
         <h2>Sales Chart</h2>
@@ -310,8 +311,22 @@
           renderSalesChart(filteredData);
         });
 
-        // Function to download PDF
+        // Function to download PDF for individual buyer
         document.getElementById("downloadPdfButton").addEventListener("click", () => {
+          downloadPdf(filteredData);
+        });
+
+        // Function to download multiple PDFs for each buyer
+        document.getElementById("downloadMultiplePdfButton").addEventListener("click", () => {
+          const buyerIds = [...new Set(filteredData.map((sale) => sale.buyerId))];
+          buyerIds.forEach((buyerId) => {
+            const buyerSales = filteredData.filter((sale) => sale.buyerId === buyerId);
+            downloadPdf(buyerSales, buyerId);
+          });
+        });
+
+        // Function to download PDF
+        function downloadPdf(data, buyerId = null) {
           if (window.jspdf) {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
@@ -323,8 +338,6 @@
             // Prepare table headers and data
             const tableColumn = [
               "Transaction ID",
-              "Buyer ID",
-              "Buyer Name",
               "Quantity (liters)",
               "Payment Method",
               "Milk Type",
@@ -337,11 +350,9 @@
             let totalQuantity = 0;
 
             // Prepare rows for each record
-            filteredData.forEach((sale) => {
+            data.forEach((sale) => {
               const saleData = [
                 sale.transactionId,
-                sale.buyerId,
-                sale.buyerName,
                 sale.quantity,
                 sale.paymentMethod,
                 sale.milkType,
@@ -360,12 +371,13 @@
             doc.setFontSize(14);
             doc.text(`Total Milk Quantity: ${totalQuantity} liters`, 14, doc.autoTable.previous.finalY + 10);
 
-            // Save PDF
-            doc.save("sales_records.pdf");
+            // Save PDF with buyer's ID and Name in the filename
+            const fileName = buyerId ? `sales_records_${buyerId}.pdf` : "sales_records.pdf";
+            doc.save(fileName);
           } else {
             alert("Failed to load jsPDF library.");
           }
-        });
+        }
       });
     </script>
   </body>
