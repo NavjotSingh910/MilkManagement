@@ -1,15 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register Buyer</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milk Selling Platform - Register Buyers</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Add any specific styles for the registration page here */
+    .registration-form {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .registration-form label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .registration-form input,
+    .registration-form select,
+    .registration-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .registration-form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .registration-form button:hover {
+      background-color: #45a049;
+    }
+
+    /* Styles for popup message */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
     <header>
-      <h1>Register Buyer</h1>
+      <h1>Milk Selling Platform</h1>
     </header>
     <nav>
       <a href="index.html">Home</a>
@@ -18,19 +80,19 @@
       <a href="records.html">Records</a>
       <a href="#">Logout</a>
     </nav>
-    <section class="register-buyer-form">
-      <h2>Enter Buyer Details</h2>
-      <form id="buyerForm">
+    <section class="registration-form">
+      <h2>Register New Buyer</h2>
+      <div id="buyerRegistrationForm">
         <div class="form-group">
-          <label for="name">Name <span class="required">*</span>:</label>
+          <label for="name">Name <span>*</span></label>
           <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
-          <label for="fatherName">Father's Name:</label>
+          <label for="fatherName">Father's Name</label>
           <input type="text" id="fatherName" name="fatherName">
         </div>
         <div class="form-group">
-          <label for="gender">Gender:</label>
+          <label for="gender">Gender</label>
           <select id="gender" name="gender">
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -38,23 +100,120 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="age">Age:</label>
+          <label for="age">Age</label>
           <input type="number" id="age" name="age">
         </div>
         <div class="form-group">
-          <label for="mobileNumber">Mobile Number:</label>
-          <input type="tel" id="mobileNumber" name="mobileNumber">
+          <label for="mobileNumber">Mobile Number <span>*</span></label>
+          <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]*" inputmode="numeric" required>
+          <small>Enter 10-digit mobile number</small>
         </div>
         <div class="form-group">
-          <label for="address">Address:</label>
-          <textarea id="address" name="address" rows="4"></textarea>
+          <label for="address">Address</label>
+          <textarea id="address" name="address"></textarea>
         </div>
-        <button type="submit">Submit</button>
-      </form>
+        <button type="button" id="registerButton">Register</button>
+      </div>
     </section>
     <footer>
       <p>&copy; 2024 Milk Selling Platform</p>
     </footer>
   </div>
+
+  <!-- Popup Message -->
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+    <p id="popupMessage"></p>
+    <button id="closePopup">Close</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const popup = document.getElementById('popup');
+      const overlay = document.getElementById('overlay');
+      const popupMessage = document.getElementById('popupMessage');
+      const closePopup = document.getElementById('closePopup');
+      const registerButton = document.getElementById('registerButton');
+
+      // Function to show popup
+      function showPopup(message) {
+        popupMessage.textContent = message;
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+      }
+
+      // Function to close popup
+      function closePopupHandler() {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+      }
+
+      // Restrict input to numbers only for mobile number field
+      const mobileNumberInput = document.getElementById('mobileNumber');
+      mobileNumberInput.addEventListener('input', function () {
+        // Remove any non-numeric characters
+        this.value = this.value.replace(/\D/g, '');
+
+        // Limit input to maximum 10 characters
+        if (this.value.length > 10) {
+          this.value = this.value.slice(0, 10);
+        }
+      });
+
+      registerButton.addEventListener('click', async function () {
+        // Validate mobile number function
+        function isValidMobileNumber(mobileNumber) {
+          return /^\d{10}$/.test(mobileNumber);
+        }
+
+        // Get form data
+        const formDataObject = {
+          name: document.getElementById('name').value,
+          fatherName: document.getElementById('fatherName').value,
+          gender: document.getElementById('gender').value,
+          age: document.getElementById('age').value,
+          mobileNumber: document.getElementById('mobileNumber').value,
+          address: document.getElementById('address').value
+        };
+
+        // Validate mobile number format
+        if (!isValidMobileNumber(formDataObject.mobileNumber)) {
+          alert('Please enter a valid 10-digit mobile number.');
+          return; // Exit function if validation fails
+        }
+
+        try {
+          // Send data to server
+          const response = await fetch('http://127.0.0.1:3000/registerBuyer', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formDataObject)
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const result = await response.json();
+          showPopup(`Name of the person is ${formDataObject.name}, your ID is ${result.id}.`); // Show success message
+          // Clear input fields (optional)
+          document.getElementById('name').value = '';
+          document.getElementById('fatherName').value = '';
+          document.getElementById('gender').value = 'male'; // Reset to default
+          document.getElementById('age').value = '';
+          document.getElementById('mobileNumber').value = '';
+          document.getElementById('address').value = '';
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Failed to register buyer. Please try again.');
+        }
+      });
+
+      // Close popup when "Close" button is clicked
+      closePopup.addEventListener('click', closePopupHandler);
+    });
+  </script>
 </body>
 </html>
